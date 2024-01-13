@@ -1,2 +1,2 @@
 global using NUnit.Framework;
-global using MathAssistant;
+global using MathAssistant.Figures;
