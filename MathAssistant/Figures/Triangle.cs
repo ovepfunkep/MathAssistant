@@ -70,12 +70,28 @@ namespace MathAssistant.Figures
             _sideC = sideC; // Not used excessive number of times
         }
 
+        /// <summary>
+        /// Checks whether the triangle with given sides 
+        /// is violates the Inequality rule or not
+        /// (Any two sides must be greater than the third one).
+        /// </summary>
+        /// <returns>True if rule violated. Otherwise false.</returns>
         private static bool IsSidesInequalityRuleViolated(double sideA, double sideB, double sideC) => ((sideA + sideB) <= sideC)
                                                                                                     || ((sideB + sideC) <= sideA)
                                                                                                     || ((sideC + sideA) <= sideB);
 
-        public double GetArea() => GetAreaByThreeSides(); // Made this way so that in future could find area by multiple ways (e.g. by height and side)
+        /// <summary>
+        /// Method finds the area of the triangle using the fastest possible method.
+        /// </summary>
+        /// <returns>Triangle area.</returns>
+        public double GetArea() => GetAreaByThreeSides(); // Only one method implemented yet.
+                                                          // In future could find area using multiple methods (e.g. by height and side)
 
+        /// <summary>
+        /// Method finds the area by three sides.
+        /// S = √(p * (p - A) * (p - B) + (p - C))
+        /// </summary>
+        /// <returns>Triangle area.</returns>
         private double GetAreaByThreeSides() 
         {
             var perimeter = SideA + SideB + SideC;
@@ -84,10 +100,15 @@ namespace MathAssistant.Figures
             return Math.Sqrt(perimetersHalf
                           * (perimetersHalf - SideA)
                           * (perimetersHalf - SideB)
-                          * (perimetersHalf - SideC)); // S = √(p * (p - A) * (p - B) + (p - C))
+                          * (perimetersHalf - SideC));
 
         }
 
-        public bool IsTriangleRectangular() => SideC == Math.Sqrt(Math.Pow(SideA, 2) + Math.Pow(SideB, 2)); // C = √(A² + B²)
+        /// <summary>
+        /// Checks whether the triangle is rectangular or not.
+        /// C = √(A² + B²)
+        /// </summary>
+        /// <returns>True if rectangular. Otherwise false.</returns>
+        public bool IsTriangleRectangular() => SideC == Math.Sqrt(Math.Pow(SideA, 2) + Math.Pow(SideB, 2));  
     }
 }

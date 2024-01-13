@@ -29,6 +29,11 @@ namespace MathAssistant.Figures
             Radius = radius;
         }
 
-        public double GetArea() => Math.PI * Math.Pow(Radius, 2); // πR²
+        /// <summary>
+        /// Finds circle area.
+        /// πR²
+        /// </summary>
+        /// <returns>Area of the circle.</returns>
+        public double GetArea() => Math.PI * Math.Pow(Radius, 2);  
     }
 }

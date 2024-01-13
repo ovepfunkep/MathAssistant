@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace MathAssistant.Figures
 {
+    /// <summary>
+    /// Interface for all figures
+    /// </summary>
     public interface IFigure
     {
         double GetArea();
