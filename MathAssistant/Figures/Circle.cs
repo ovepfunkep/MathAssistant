@@ -6,9 +6,28 @@ using System.Threading.Tasks;
 
 namespace MathAssistant.Figures
 {
-    public class Circle(int radius) : IFigure
+    public class Circle : IFigure
     {
-        public int Radius { get; set; } = radius;
+        public double _radius;
+        public double Radius 
+        {
+            get => _radius;
+            set
+            {
+                if (value <= 0)
+                    throw new ArgumentException("Circle radius must be positive.");
+
+                _radius = value;
+            }
+        }
+
+        public Circle(double radius)
+        {
+            if (radius <= 0)
+                throw new ArgumentException("Circle radius must be positive.");
+
+            Radius = radius;
+        }
 
         public double GetArea() => Math.PI * Math.Pow(Radius, 2); // πR²
     }
