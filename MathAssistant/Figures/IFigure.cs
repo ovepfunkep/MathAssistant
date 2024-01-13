@@ -9,6 +9,6 @@ namespace MathAssistant.Figures
 {
     internal interface IFigure
     {
-        double GetSquare();
+        double GetArea();
     }
 }
