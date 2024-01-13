@@ -136,6 +136,26 @@ namespace MathAssistantTests.FiguresTests
         }
 
         [Test]
+        public void GetArea_TriangleAsFigure_CalculatesCorrectly()
+        {
+            // Assert
+            int sideA = 3;
+            int sideB = 4;
+            int sideC = 5;
+            int perimeter = sideA + sideB + sideC;
+            int perimetersHalf = perimeter / 2;
+
+            // Act
+            IFigure triangle = new Triangle(sideA, sideB, sideC);
+
+            // Assert
+            Assert.That(triangle.GetArea(), Is.EqualTo(Math.Sqrt(perimetersHalf
+                                                              * (perimetersHalf - sideA)
+                                                              * (perimetersHalf - sideB)
+                                                              * (perimetersHalf - sideC))));
+        }
+
+        [Test]
         public void IsTriangleRectangular_ValidSides_ReturnsTrue()
         {
             // Assert

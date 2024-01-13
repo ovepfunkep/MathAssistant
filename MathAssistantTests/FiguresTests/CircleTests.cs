@@ -80,5 +80,18 @@ namespace MathAssistantTests.FiguresTests
             // Assert
             Assert.That(circle.GetArea(), Is.EqualTo(Math.PI * Math.Pow(radius, 2)));
         }
+
+        [Test]
+        public void GetArea_CircleAsFigure_CalculatesCorrectly()
+        {
+            // Assert
+            int radius = 1;
+
+            // Act
+            IFigure circle = new Circle(radius);
+
+            // Assert
+            Assert.That(circle.GetArea(), Is.EqualTo(Math.PI * Math.Pow(radius, 2)));
+        }
     }
 }
