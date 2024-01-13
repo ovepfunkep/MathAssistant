@@ -21,6 +21,7 @@ namespace MathAssistantTests.FiguresTests
             // Assert
             Assert.That(circle.Radius, Is.EqualTo(radius));
         }
+
         [Test]
         public void Create_InvalidRadius_ThrowsArgumentException()
         {
@@ -30,6 +31,7 @@ namespace MathAssistantTests.FiguresTests
             // Act and Assert
             Assert.Throws<ArgumentException>(() => new Circle(radius));
         }
+
         [Test]
         public void AssignProperty_ValidRadius_AssignsCorrectly()
         {
@@ -39,11 +41,15 @@ namespace MathAssistantTests.FiguresTests
 
             // Act
             var circle = new Circle(radius);
-            circle.Radius = newRadius;
 
             // Assert
-            Assert.That(circle.Radius, Is.EqualTo(newRadius));
+            Assert.Multiple(() =>
+            {
+                Assert.DoesNotThrow(() => circle.Radius = newRadius);
+                Assert.That(circle.Radius, Is.EqualTo(newRadius));
+            });
         }
+
         [Test]
         public void AssignProperty_InvalidRadius_ThrowsArgumentException()
         {
@@ -61,6 +67,7 @@ namespace MathAssistantTests.FiguresTests
                 Assert.That(circle.Radius, Is.EqualTo(radius));
             });
         }
+
         [Test]
         public void GetArea_CalculatesCorrectly()
         {

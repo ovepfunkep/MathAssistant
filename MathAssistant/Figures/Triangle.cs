@@ -70,9 +70,9 @@ namespace MathAssistant.Figures
             _sideC = sideC; // Not used excessive number of times
         }
 
-        public static bool IsSidesInequalityRuleViolated(double sideA, double sideB, double sideC) => sideA + sideB > sideC
-                                                                                                   && sideB + sideC > sideA
-                                                                                                   && sideC + sideA > sideB;
+        private static bool IsSidesInequalityRuleViolated(double sideA, double sideB, double sideC) => ((sideA + sideB) <= sideC)
+                                                                                                    || ((sideB + sideC) <= sideA)
+                                                                                                    || ((sideC + sideA) <= sideB);
 
         public double GetArea() => GetAreaByThreeSides(); // Made this way so that in future could find area by multiple ways (e.g. by height and side)
 
